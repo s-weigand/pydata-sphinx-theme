@@ -79,7 +79,7 @@ def overwrite_pygments_css(app: Sphinx, exception=None):
         style_name = theme_options.get(style_key, None)
         # if not, use the one we set in `theme.conf`:
         if style_name is None and hasattr(app.builder, "theme"):
-            style_name = app.builder.theme.get_options()[style_key]
+            style_name = app.builder.theme.get_options().get(style_key, None)
 
         # make sure we can load the style
         if style_name not in pygments_styles:
